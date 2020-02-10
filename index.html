@@ -1,0 +1,31 @@
+<html>
+    <head>
+
+
+    </head>
+    <body>
+        <script src="./peer.js"></script>
+        <script>
+            let hash = location.hash.slice(1);
+            //console.log( hash );
+            if( hash !== '' || hash !== null){
+                var peer = new Peer( hash );
+            }
+            startPeer = ()=>{
+                let id = document.querySelector( '#userId' );
+                if( id.value !== null || id.value !== '' ){
+                    peer.check( id.value );                    
+                }
+                peer.on( 'newpeerfail', ( res )=>{
+                    alert( res.user+" "+res.status );
+                } );
+            }
+        </script>
+        <center>
+            <div>
+                <input type="text" id="userId" placeholder="Type User you wish to peer" autocomplete="off"/>
+                <button onclick="startPeer()">Start</button>
+            </div>
+        </center>
+    </body>
+</html>
