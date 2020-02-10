@@ -20,15 +20,7 @@ class Peer{
                     }
                 }
             }
-            this.websocket.onclose = ( e )=>{
-                let rec = setInterval( ()=>{
-                    if( this.websocket.readyState == 3 ){
-                        this.websocket = new WebSocket( this.wsUrl+"/rtc?user="+userid );
-                    } else {
-                        clearInterval( rec );
-                    }
-                }, 100000 );
-            }
+            this.websocket.onclose = ( e )=>{}
             this.websocket.onerror = ( e )=>{
                 console.log( e );
             }
