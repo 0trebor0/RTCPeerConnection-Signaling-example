@@ -1,7 +1,7 @@
 class Peer{
     constructor( userid ){
         this.myId = userid;
-        this.wsUrl = "ws://localhost:80";
+        this.wsUrl = "ws://localhost:8080";
         this.peers = {};
         this.websocket = new WebSocket( this.wsUrl+"/rtc?user="+userid );
         this.onEvents = {};
@@ -14,7 +14,8 @@ class Peer{
                         console.log( "[WEBSOCKET][R][EVENT: "+array.type+"]" );
                         if( this.msgEvents[ array.type ] ){
                             this.msgEvents[ array.type ]( array );
-                        } else if( this.onEvents[ array.type ] ){
+                        }
+                        if( this.onEvents[ array.type ] ){
                             this.onEvents[ array.type ]( array );
                         }
                     }
