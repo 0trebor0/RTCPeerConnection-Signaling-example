@@ -14,7 +14,7 @@
     "http": "0.0.0",
     "mime-types": "^2.1.26",
     "url": "^0.11.0",
-    "ws": "^7.2.1"
+    "ws": "^7.4.6"
   },
   "devDependencies": {},
   "repository": {
